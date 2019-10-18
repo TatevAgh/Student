@@ -16,6 +16,9 @@ export class CreateEditGroupsComponent implements OnInit {
   public facultyInfo: any = [];
   public groupsForm: FormGroup;
   public header: string;
+  public modalHidden: boolean = true;
+  public title: string;
+
 
   constructor(
     private rout: ActivatedRoute,
@@ -76,7 +79,12 @@ export class CreateEditGroupsComponent implements OnInit {
         this.createGroup();
         console.log('create')
       }
-    }
+    }this.modalHidden = false;
+    this.title = "ERROR invalid information";
+  }
+
+  public closeBtn() {
+    this.modalHidden = true;
   }
 
 

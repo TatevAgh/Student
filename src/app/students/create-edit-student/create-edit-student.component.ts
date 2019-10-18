@@ -21,6 +21,8 @@ export class CreateEditStudentComponent implements OnInit {
   public facultyInfo: any = [];
   public groupInfo: any = [];
   public groupsFromFaculty: any = [];
+  public modalHidden: boolean = true;
+  public title: string;
 
   constructor(
     private rout: ActivatedRoute,
@@ -144,9 +146,13 @@ export class CreateEditStudentComponent implements OnInit {
       } else {
         this.createStudent();
       }
-    }
+    }this.modalHidden = false;
+    this.title = "ERROR invalid information";
   }
 
+  public closeBtn() {
+    this.modalHidden = true;
+  }
   //gets students information by id for editing
   public getStudentById(){
     if(this.id !== undefined){

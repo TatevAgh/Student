@@ -29,3 +29,13 @@
         </div>
     </form>
 </div>
+
+<app-notification [hidden]='modalHidden'>
+    <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+                <div>{{title}}</div>
+                <button type="button" class="btn btn-danger" (click)="closeBtn()">Close</button>
+                <button type="button" class="btn btn-success" (click)="closeBtn()">Ok</button>
+            </div>
+          </div>
+</app-notification>

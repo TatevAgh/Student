@@ -14,6 +14,8 @@ export class CreateEditFacultyComponent implements OnInit {
   public id: number;
   public facultyForm: FormGroup;
   public header: string;
+  public modalHidden: boolean = true;
+  public title: string;
 
   constructor(
     private rout: ActivatedRoute,
@@ -66,7 +68,13 @@ export class CreateEditFacultyComponent implements OnInit {
       } else {
         this.createFaculty();
       }
-    }
+    } this.modalHidden = false;
+    this.title = "ERROR invalid information";
+    
+  }
+
+  public closeBtn() {
+    this.modalHidden = true;
   }
 
   // sends changes to api, and then navigates to faculty page
