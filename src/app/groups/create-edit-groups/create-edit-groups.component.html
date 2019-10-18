@@ -1,0 +1,31 @@
+<div >
+    <form [formGroup]="groupsForm">
+        <div class="card">
+            <h5 class="card-header">{{header}}</h5>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <tr scope="row">
+                        <label for="groupName">Group Name:</label> <br>
+                        <input type="text" class="form-control input" id="groupName" name="groupName"
+                            formControlName="name" required>
+                    </tr>
+                    <tr scope="row">
+                        <label for="facultyName">Faculty Name:</label> <br>
+                        <select id="facultyNames" class="form-control" formControlName="faculty_id">
+                            <option *ngFor="let item of facultyInfo; item as itemIndex" [value]="item.id">
+                                {{item.name}} </option>
+                        </select>
+                    </tr>
+                    <tr class="buttons">
+                        <div class="btn">
+                            <button aria-pressed="true" class="btn btn-success saveBtn" type="button"
+                                (click)="saveFunction()" style = "cursor:pointer">Save</button>
+                            <button aria-pressed="true" class="btn  btn-danger active" type="button"
+                                (click)="cancelFunction()" style = "cursor:pointer">Cancel</button>
+                        </div>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>

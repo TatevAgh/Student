@@ -1,0 +1,24 @@
+<div>
+    <form [formGroup]="facultyForm">
+        <div class="card">
+            <h5 class="card-header">{{header}}</h5>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <tr scope="row">
+                        <label for="facultyName"> Name:</label> <br>
+                        <input type="text" class="form-control input" id="facultyName" name="facultyName"
+                            formControlName="name" required>
+                    </tr>
+                    <tr class="buttons">
+                        <div class="btn">
+                            <button aria-pressed="true" class="btn btn-success saveBtn" type="button"
+                                (click)="saveFunction()" style = "cursor:pointer">Save</button>
+                            <button aria-pressed="true" class="btn  btn-danger active" type="button"
+                                (click)="cancelFunction()" style = "cursor:pointer">Cancel</button>
+                        </div>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>

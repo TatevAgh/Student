@@ -1,0 +1,50 @@
+<div>
+    <div class="card">
+        <h5 class="card-header">Groups Table</h5>
+        <div class="card-body">
+            <button aria-pressed="true" class="btn btn-success create" type="button" (click)="createGroup()">
+               Create Group</button>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col"></th>
+                    <th scope="col">Faculty</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">Group</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of groupListInfo; index as itemIndex">
+                    <th scope="row">{{item.id}}</th>
+                    <td></td>
+                    <td>{{item.get_faculty.name}}</td>
+                    <td></td>
+                    <td></td>
+                    <td>{{item.name}}</td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <i class="fa fa-edit edit" (click)="editGroup(item.id)"style = "cursor:pointer"></i>
+                        <i class="fa fa-remove remove" (click)="openModal(item.id)" style = "cursor:pointer"></i>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<app-notification [hidden]='modalHidden'>
+    <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+                <div>{{title}}</div>
+                <button type="button" class="btn btn-danger" (click)="closeBtn()">Close</button>
+                <button type="button" class="btn btn-success" (click)="removeGroup()">Delete</button>
+            </div>
+          </div>
+</app-notification>

@@ -1,0 +1,51 @@
+<div>
+    <div class="card">
+        <h5 class="card-header">Students Table</h5>
+        <div class="card-body">
+            <button aria-pressed="true" class="btn btn-success create" type="button" (click)="createStudent()">Create
+                Student</button>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Lasname</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Faculties</th>
+                    <th scope="col"></th>
+                    <th scope="col">Groups</th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of studentListInfo; index as itemIndex">
+                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.last_name}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.phone}}</td>
+                    <td>{{item.get_faculty.name}}</td>
+                    <td></td>
+                    <td >{{item.get_group[0].name}}</td>
+                    <td>
+                        <i class="fa fa-edit edit" (click)="editStudent(item.id)" style = "cursor:pointer"></i>
+                        <i class="fa fa-remove remove" (click)="openModal(item.id)" style = "cursor:pointer" ></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<app-notification [hidden]='modalHidden'>
+    <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+                <div>{{title}}</div>
+                <button type="button" class="btn btn-danger" (click)="closeBtn()">Close</button>
+                <button type="button" class="btn btn-success" (click)="removeStudent()">Delete</button>
+            </div>
+          </div>
+</app-notification>

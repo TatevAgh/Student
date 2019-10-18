@@ -1,0 +1,68 @@
+// If you want to override variables do it here
+@import "variables";
+
+// Import styles
+@import "~@coreui/coreui/scss/coreui";
+
+// If you want to add something do it here
+@import "custom";
+
+.edit{
+    margin-right: 3px;
+    color:green;
+    font-size: 17px;
+}
+.card-header{
+    background-color: #D3D3D3
+} 
+h5{
+    margin-top: 0px !important;
+    background-color:#D3D3D3;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.remove{
+    color: #cc0000;
+    font-size: 20px;
+}
+.create{
+    border-radius: 4px;
+    background-color: #1f7a1f;
+    color: white;
+    float: right;
+}
+.input{
+    width: 100%;
+    margin-top: 5px;
+}
+// tr{
+//     margin-top: 0px !important;
+// }
+.btn{
+    text-align: right;
+    margin-top: 10px !important;
+    float: right;
+
+}
+.cancelBtn{
+    border-radius: 4px;
+    background-color: #cc0000;
+    color: white;
+
+}
+.saveBtn{
+    border-radius: 4px;
+    background-color: #1f7a1f;
+    color: white;
+}
+.ng-valid.ng-dirty:not(form) {
+    border: solid 2px lightgreen;
+  }
+  
+.ng-invalid.ng-dirty:not(form), .ng-invalid:not(form).form-submitted {
+    border: solid 2px lightcoral;
+  }

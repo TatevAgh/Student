@@ -1,0 +1,53 @@
+<div>
+    <div class="card">
+        <h5 class="card-header">Faculty Table</h5>
+        <div class="card-body">
+            <button aria-pressed="true" class="btn btn-success create" type="button" (click)="createFaculty()">Create
+                Faculty</button>
+        </div>
+        <table class="table table-striped ">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of facultyInfo; index as itemIndex">
+                    <th scope="row">{{item.id}}</th>
+                    <td></td>
+                    <td>{{item.name}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <i class="fa fa-edit edit" (click)="editFaculty(item.id)" style = "cursor:pointer"></i>
+                        <i class="fa fa-remove remove" (click)="openModal(item.id)"  style = "cursor:pointer"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<app-notification [hidden]='modalHidden'>
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                    <div>{{title}}</div>
+                    <button type="button" class="btn btn-danger" (click)="closeBtn()">Close</button>
+                    <button type="button" class="btn btn-success" (click)="removeFaculty()">Delete</button>
+                </div>
+              </div>
+</app-notification>
+
+
+

@@ -1,0 +1,66 @@
+<div >
+    <form [formGroup]="studentsForm">
+        <div class="card">
+            <h5 class="card-header">{{header}}</h5>
+            <div class="card-body">
+                <table class="table table-striped">
+                        <label class="font-weight-bold" for="exampleFormControlInput1">Name:</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name" formControlName="name">
+                        <div *ngIf="studentsForm.get('name').touched && studentsForm.get('name').invalid"
+                             class="alert alert-danger mt-1 p-2">
+                            Name is required
+                        </div>
+                        <label class="font-weight-bold mt-3" for="exampleFormControlInput2">LastName:</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="LastName" formControlName="last_name">
+                        <div *ngIf="studentsForm.get('last_name').touched && studentsForm.get('last_name').invalid"
+                             class="alert alert-danger mt-1 p-2">
+                            LastName is required
+                        </div>
+                        <label class="font-weight-bold mt-3" for="exampleFormControlInput3">Email:</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="Email" formControlName="email">
+                        <div *ngIf="studentsForm.get('email').touched && studentsForm.get('email').pristine"
+                             class="alert alert-danger mt-1 p-2">
+                            Email is required
+                        </div>
+                        <div *ngIf="studentsForm.get('email').dirty && studentsForm.get('email').invalid"
+                             class="alert alert-danger mt-1 p-2">
+                            Email is invalid
+                        </div>
+                        <label class="font-weight-bold mt-3" for="exampleFormControlInput4">Phone:</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput4" placeholder="Phone" formControlName="phone">
+                        <div *ngIf="studentsForm.get('phone').touched && studentsForm.get('phone').invalid"
+                             class="alert alert-danger mt-1 p-2">
+                            Phone is required
+                        </div>
+                        <label class="font-weight-bold mt-3" for="exampleFormControlInput5">Faculty:</label>
+                        <select class="custom-select" id="exampleFormControlInput5" formControlName="faculty_id" (change)="getGroupListInfo()">
+                            <option value="">---Please select---</option>
+                            <option *ngFor="let item of facultyInfo; item as itemIndex" [value]="item.id"  >
+                                    {{item.name}} </option>
+                        </select>
+                        <div *ngIf="studentsForm.get('faculty_id').touched && studentsForm.get('faculty_id').invalid"
+                             class="alert alert-danger mt-1 p-2">
+                            Faculty is required
+                        </div>
+                        <label class="font-weight-bold mt-3" for="exampleFormControlInput6">Group:</label>
+                        <select id="groupName" class="form-control" formControlName="group_id" id="exampleFormControlInput6">
+                            <option *ngFor="let item of groupsFromFaculty; item as itemIndex" [value]="item.id">
+                                {{item.name}} </option>
+                        </select>
+                        <div *ngIf="studentsForm.get('group_id').touched && studentsForm.get('group_id').invalid"
+                             class="alert alert-danger mt-1 p-2">
+                            Group is required
+                        </div>
+                    <tr class="buttons">
+                        <div class="btn">
+                            <button aria-pressed="true" class="btn btn-success saveBtn" type="button"
+                                (click)="saveFunction()" style = "cursor:pointer">Save</button>
+                            <button aria-pressed="true" class="btn  btn-danger active" type="button"
+                                (click)="cancelFunction()" style = "cursor:pointer">Cancel</button>
+                        </div>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
